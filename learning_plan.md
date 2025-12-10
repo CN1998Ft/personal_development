@@ -8,7 +8,8 @@ know What I want to build and What I want to get out from this.
 
 ## Fundamental concepts
 ### Makefile and CMake
-As I need to learn C properly, I better know how Makefile and CMake work.
+As I need to learn C properly, I better know how [Makefile][8] and [CMake][9]
+work.
 
 ### How does C manage memory
 Learn from like memory allocation, pointers, heap and stack. All these stuff.
@@ -50,3 +51,5 @@ or computer works.
 [5]: https://www.hello-algo.com/ "hello-algo"
 [6]: https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html "Regex matcher"
 [7]: https://swtch.com/~rsc/regexp/regexp1.html "Simple and Fast Regex"
+[8]: https://makefiletutorial.com/ "Learn Makefiles By Example"
+[9]: https://cmake.org/cmake/help/book/mastering-cmake/ "Mastering CMake"

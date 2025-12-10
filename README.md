@@ -1,9 +1,16 @@
 # Personal development
-This is my personal private repository for storing markdown notes.
+---
+> [!IMPORTANT]
+> This is my personal repository for storing coding related notes and practice.
 
-Such as the personal learning plan. A general plan for me to learn how C as a
-low-level programming works.
+## Learning plan
+The learning plan can be found from [learning_plan.md](./learning_plan.md).
+Where details of reason and source of each practice can be found.
+The document itself is also a practice with markdown language.
 
-Additional markdown file will contain notes for detailed learning stuff.
-# LICENSE
-This repo is under [MIT License](https://opensource.org/license/mit)
+---
+## LICENSE
+This repo is under [MIT License](https://opensource.org/license/mit).
+
+---
+<!-- references -->
