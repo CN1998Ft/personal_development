@@ -13,6 +13,7 @@ work.
 
 ### How does C manage memory
 Learn from like memory allocation, pointers, heap and stack. All these stuff.
+[Tutorial](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory)
 
 ### Algorithm
 Learn the entry level algorithm from [hello-algo][5].
@@ -20,6 +21,10 @@ Learn the entry level algorithm from [hello-algo][5].
 ## Real Life Project Practice
 Some real practice to see how these fundamental concepts are implemented in
 real life project.
+
+### Write a shell in C
+As we use shell a lot, I figure it will be fun to learn how shell was built.
+[Write a Shell in C](https://brennan.io/2015/01/16/write-a-shell-in-c/)
 
 ### Regex
 Two very short tutorial found online.
