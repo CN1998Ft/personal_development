@@ -12,6 +12,10 @@ know What I want to build and What I want to get out from this.
 
 - [ ] and [CMake][9] work.
 
+### Complete bash tutorial
+
+- [ ] Following [YSAP for the complete Bash Scripting Course][10]
+
 ### How does C manage memory
 - [ ] Learn from like memory allocation, pointers, heap and stack. All these stuff.
 [Tutorial](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory)
@@ -56,7 +60,9 @@ or computer works.
 [3]: https://build-your-own.org/redis/ "build your own redis"
 [4]: https://build-your-own.org/compiler/ "From source code to Machine code"
 [5]: https://www.hello-algo.com/ "hello-algo"
-[6]: https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html "Regex matcher"
+[6]: https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html
+"Regex matcher"
 [7]: https://swtch.com/~rsc/regexp/regexp1.html "Simple and Fast Regex"
 [8]: https://makefiletutorial.com/ "Learn Makefiles By Example"
 [9]: https://cmake.org/cmake/help/book/mastering-cmake/ "Mastering CMake"
+[10]: https://course.ysap.sh/ "The complete Bash Scripting Course"

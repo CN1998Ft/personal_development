@@ -4,8 +4,9 @@ import os
 
 def print_os() -> None:
     p_os = os.uname()
-    os_name = os.uname().machine()
+    os_name = os.uname().sysname
     print(p_os)
+    print(os_name)
 
 
 if __name__ == "__main__":
