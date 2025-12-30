@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-if true; then
-    echo 'if statement is true'
-else
-    echo 'if statement is false'
-fi 
-
