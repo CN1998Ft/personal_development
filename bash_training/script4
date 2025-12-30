@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for name in foo bar baz; do
+    echo "name is $name"
+done
