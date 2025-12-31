@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if ! declare -A arr;then
+    echo "We cannot do associative array"
+    exit 1
+fi
+
+declare -A arr
+
+arr[foo]=1
+arr[bar]=2
+arr[baz]=3
+
+for key in "${!arr[@]}";do
+    echo "key:$key = ${arr[$key]}"
+done

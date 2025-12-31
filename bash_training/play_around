@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+hello(){
+    local name=$1
+    echo "Hello, $name"
+}
+
+goodbye(){
+    local name=$1
+    echo "Goodbye, $name"
+}
+
+if [[ $# == 0 ]]; then
+    echo "User input required." >&2
+    exit 1
+fi
+
+for name in "$@";do
+    case "$name" in
+        f* | d*) hello $name;;
+        *) goodbye $name;;
+    esac
+done
