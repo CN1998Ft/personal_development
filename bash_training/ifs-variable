@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+array=(
+    foo
+    bar
+    baz
+    "Hello there"
+)
+
+(
+    IFS=,
+    echo "${array[*]}"
+)
+
+echo "${array[*]}"
