@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+s='far'
+
+case "$s" in
+    d*) echo "we matched d*";;&
+    b*) echo "we matched b*";;&
+    f*) echo "we matched f*";;&
+    a*) echo "we matched a*";;&
+    *) echo "we matched everything";;&
+esac

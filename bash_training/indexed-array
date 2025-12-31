@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+array=(foo bar baz)
+#
+# echo "0: ${array[0]}"
+# echo "1: ${array[1]}"
+# echo "2: ${array[2]}"
+# echo "3: ${array[3]}"
+# echo
+#
+# echo "-1: ${array[-1]}"
+# echo "-2: ${array[-2]}"
+# echo 
+#
+# idx=2
+# echo "idx: ${array[idx]}"
+# echo "idx: ${array[$idx]}"
+
+echo "Looping inside array[*]"
+for item in "${array[*]}";do
+    echo "$item"
+done
+echo
+
+echo "Looping through inside array[@]"
+for item in "${array[@]}";do
+    echo "$item"
+done
+
+declare -a first_array=(
+    foo
+    bar
+    baz
+    "Hello my friends"
+    )
+echo
+second_array=("${first_array[@]}")
+second_array+=(buddy guy foolish)
+for item in "${second_array[@]}";do
+    echo "We have item: $item"
+done
+
+declare -p second_array
+
+echo
+echo "checking the length of the array"
+echo "${#second_array[@]}"
+
+echo
+echo "checking the length of each item in the second array"
+for item in "${second_array[@]}";do
+    echo "The length of item: $item is ${#item}"
+done
