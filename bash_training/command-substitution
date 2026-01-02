@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo backticks
+whoami
+echo `whoami`
+echo `echo \`whoami\``
+
+echo
+echo dollar-parens notation
+whoami
+echo $(whoami)
+echo $(echo $(whoami))
+thing=$(uname)
+echo "$thing"
