@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+i=4
+((i*=5))
+echo $i
+
+a=2
+b=4
+((max=a>b? a: b))
+echo "max is $max"
+
+i=0xa8
+echo $i
+echo $((i))

@@ -1,14 +1,29 @@
 #!/usr/bin/env bash
 
-echo backticks
-whoami
-echo `whoami`
-echo `echo \`whoami\``
+# echo backticks
+# whoami
+# echo `whoami`
+# echo `echo \`whoami\``
+#
+# echo
+# echo dollar-parens notation
+# whoami
+# echo $(whoami)
+# echo $(echo $(whoami))
+# thing=$(uname)
+# echo "$thing"
 
-echo
-echo dollar-parens notation
-whoami
-echo $(whoami)
-echo $(echo $(whoami))
-thing=$(uname)
-echo "$thing"
+i=5
+my-func() {
+    i=6
+    echo hi
+}
+
+# this double-parens enable subshell where any variable will be local
+thing=$(my-func)
+# the following is a new feature to bash, where its faster as it doesn't create
+# subshell. Thus, variable created will be global.
+thing=${ my-func; }
+echo "thing is $thing"
+
+echo "i is $i"
