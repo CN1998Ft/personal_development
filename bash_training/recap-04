@@ -7,6 +7,32 @@ process-indexed() {
     local IFS=,
     echo "${arguments[*]}"
 }
+
+process-associative() {
+    local arguments=("$@")
+    echo "found: ${#arguments[@]} arguments"
+
+    declare -A unique
+    local item
+    for item in "${arguments[@]}";do
+        unique[$item]=1
+    done
+
+    echo "found: ${#unique[@]} unique arguments"
+}
+
+process-commands() {
+    local arguments=("$@")
+    echo "found: ${#arguments[@]} arguments"
+
+    local item
+    for item; do
+        echo "running command \"$item\""
+        "$item"
+    done
+}
+
+
 cmd=$1
 echo "script called with arguments: $*"
 shift
@@ -15,6 +41,12 @@ echo "script shifted to arguments: $*"
 case "$cmd" in
     indexed)
         process-indexed "$@"
+        ;;
+    associative)
+        process-associative "$@"
+        ;;
+    command)
+        process-commands "$@"
         ;;
     *)
         echo "unkown cmd: $cmd" >&2
