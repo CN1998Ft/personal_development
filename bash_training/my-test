@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# we want to check the current directory and save all the files inside the
+# directory to an array.
+declare -a list_files
+list_files=(
+    $(ls)
+)
+echo "${list_files[*]}"
+for item in "${list_files[@]}";do
+    echo "We have found file: $item."
+done
+

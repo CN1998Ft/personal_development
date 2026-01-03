@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+process-indexed() {
+    local arguments=("$@")
+    echo "found: ${#arguments[@]} arguments"
+
+    local IFS=,
+    echo "${arguments[*]}"
+}
+cmd=$1
+echo "script called with arguments: $*"
+shift
+echo "script shifted to arguments: $*"
+
+case "$cmd" in
+    indexed)
+        process-indexed "$@"
+        ;;
+    *)
+        echo "unkown cmd: $cmd" >&2
+        exit 1
+        ;;
+esac
