@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+PS4="Debug:  "
+set -x
+
+first_name='john'
+last_name='eddy'
+
+full_name="$first_name $last_name"
+
+if [[ $first_name == "dave" ]]; then
+    echo "oh hey it's dave"
+fi
+
+echo "Hello $full_name"
+
+set +x
+
+foo=1
+bar=2
+
+echo "foo is $foo"
+echo "bar is $bar"
+echo "baz is $baz"
