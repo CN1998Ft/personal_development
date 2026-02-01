@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# cat /etc/passwd | grep fengtao | cut -d : -f 7
+declare -A shells
+
+while IFS=: read -r name pass uid gid gecos home shell; do
+    # echo "found user $name"
+    # continue
+    if [[ $name == "#"* ]]; then
+        continue
+    fi
+
+    shells[$name]=$shell
+done </etc/passwd
+
+me="fengtao"
+
+echo "fengtao gas the shell: ${shells["$me"]}"
+echo "fengtao gas the shell: ${shells[fengtao]}"
+echo "${shells[@]}"
