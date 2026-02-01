@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+max=4
+# for i in {1..10} foo bar baz; do
+for ((i = 0; i <= $max; i += 2)); do
+    echo "$i"
+done
