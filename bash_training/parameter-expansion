@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+name=${1?"You must provide a name"}
+name=${1:?"You must provide a name"}
+name=${1:-$USER}
+echo "Hello $name"
+echo "done"
