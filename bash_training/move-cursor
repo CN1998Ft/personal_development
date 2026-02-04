@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# save cursor positon
+printf '\e7'
+# jump somewhere
+printf '\e[20;20H'
+# print hello world
+printf 'Hello World'
+# go back to cursor
+printf '\e8'

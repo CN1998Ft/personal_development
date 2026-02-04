@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [[ -t 1 ]]; then
+    tput setaf 3
+    echo it worked
+    echo stdout is a tty
+else
+    tput setaf 2
+    echo it did not work
+    echo stdout is not a tty
+fi
