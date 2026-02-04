@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+cleanup(){
+    echo cleanup fucntion running
+    exit 2
+}
+
+trap cleanup exit
+
+echo script starting
+echo ...
+echo script done
+exit 1
+
+my-func(){
+    echo "[DEBUG] running: $BASH_COMMAND"
+}
+
+trap my-func debug
+
+echo script starting 
+echo ...
+echo script done
+exit 1
+
+
+

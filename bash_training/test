@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+if test -f foo.jpg; then
+    echo foo.jpg exists
+fi
+
+if [ -f foo.jpg ]; then
+    echo "foo.jpg exists from []"
+fi
+
+if [[ -f foo.jpg ]]; then
+    echo "foo.jpg exists from [[]]"
+fi
+
+f='test.jpg'
+if [[ $f == *.jpg ]]; then
+    echo "$f is a jpg file"
+else
+    echo "$f is not a jpg file"
+fi
+
+f='test.jpg'
+if [ $f == "*.jpg" ]; then
+    echo "$f is a jpg file"
+else
+    echo "$f is not a jpg file"
+fi
+
+f='test.jgp'
+if [[ $f == '*.jpg' ]]; then
+    echo "$f is a jpg file"
+else 
+    echo "$f is not a literal *.jpg"
+fi
+
+a=9
+b=10
+
+if [[ $b > $a ]]; then
+    echo "$b is bigger than $a"
+else 
+    echo "$b is smaller than $a"
+fi
+
+a=9
+b=10
+if [[ $b -gt $a ]]; then
+    echo "$b is bigger than $a"
+else
+    echo "$b is smaller than $a"
+fi
+
+
+a=9
+b=10
+
+if ((b>a)); then
+    echo "$b is bigger than $a"
+else
+    echo "$b is smaller than $a"
+fi
+
+
+
