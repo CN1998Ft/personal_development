@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# ----------------------------------------------------------------------------
+# Definations: 
+# ^ start of string and $ end of string
+# () groups match together
+# [] define a list of character to match
+# - use for (a-c)==(abc) or (1-9)==(123...9)={1..9}
+# . matches any character
+# {} occurences of the character
+# ? mark previous character optional 0 or 1 occurrence
+# + one or more occurence
+# * match 0 or many previous character
+# | OR conditon
+# \ escapes the nex character.
+# ----------------------------------------------------------------------------
+# The explaination of the regex is that:
+# 1. match any character as many as possible til the / forward slash.
+# 2. first group mutiple any characters before the hyphen.
+# 3. match a hyphen "space-space"
+# 4. second group 
+#   - matched '4 numbers' -hyphen '2 numbers' -hyphen '2 numbers'
+# 5. match a dot \.
+# 6. matched anything any times at the end.
+# ----------------------------------------------------------------------------
+reg='^.*\/(.*) - ([0-9]{4}-[0-9]{2}-[0-9]{2})\..*$'
+for f in ./images/*; do
+    if ! [[ $f =~ $reg ]]; then
+        echo "$f didn't match pattern"
+        continue
+    fi
+    name=${BASH_REMATCH[1]}
+    date=${BASH_REMATCH[2]}
+    echo "$name: $date"
+    echo "What is in bash_rematch[0]: ${BASH_REMATCH[0]}"
+done
