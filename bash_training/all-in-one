@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+exec {fd}<>pipe
+
+client(){
+    local name=$1
+    while true; do
+        sleep 3
+        echo "[client $name] hello" >&$fd
+        done
+}
+
+client foo &
+sleep 1
+client bar &
+sleep 1
+client baz &
+
+while read -r -u "$fd" line; do
+    echo "[read line] $line"
+done
