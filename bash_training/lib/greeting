@@ -9,6 +9,8 @@ goodbye() {
     echo "goodbye $name"
 }
 
+return
+
 if ! (return 2>/dev/null); then
     greet dave
     greet john
