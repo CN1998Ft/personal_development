@@ -22,10 +22,10 @@ know What I want to build and What I want to get out from this.
 
         Really good tutorial for bash. Highly Recommended. 
 
-### How does C manage memory
+### Learn to create a language
 
-- [ ] Learn from like memory allocation, pointers, heap and stack. All these stuff.
-[Tutorial](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory)
+- [ ] Learn something simple first, like
+[build your own lisp][1]
 
 ### Algorithm
 
@@ -49,10 +49,10 @@ Two very short tutorial found online.
 
 - [ ] 2. [Regular Expression Matching Can Be Simple And Fast][7]
 
-### Learn to create a language
+### How does C manage memory
 
-- [ ] Learn something simple first, like
-[build your own lisp][1]
+- [ ] Learn from like memory allocation, pointers, heap and stack. All these stuff.
+[Tutorial](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory)
 
 ### Database
 
