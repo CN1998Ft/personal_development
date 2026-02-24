@@ -99,6 +99,5 @@ int main(){
     // It is used with struct together to create struct, which is the group of
     // different types of variables. typedef can be used to create an alias of
     // the struct.
-    }
     return 0;
 }
