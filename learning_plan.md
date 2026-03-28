@@ -68,6 +68,19 @@ large data with designing different data structures. Like:
 or computer works.
 [From source code to Machine code][4] teaches how a compiler is made.
 
+### Books
+
+- [x] Learning Vimscript the hard way, I need to know my editor.
+Somewhat finished, as for vanilla vim I want to keep it simple. Therefore, only
+followed through the book till the plugins section. But, I am trying to not just
+blindly use lazyvim. So I am learning lua and understand how the plugins for nvim
+works and make it more efficient and minimalistic.
+
+- [ ] Structure and Interpretation of Computer Programs
+
+- [ ] Computer Systems: A programmer's Perspective
+
+
 ---
 <!-- Reference -->
 [1]: https://www.buildyourownlisp.com/contents "build your own lisp"
