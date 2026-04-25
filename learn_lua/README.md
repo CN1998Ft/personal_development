@@ -2,7 +2,7 @@
 
 >>> [!important] Disclaimer
 The purpose of the subrepo is to learn lua, so that I understand more about
-neovim, the text editor I use everyday now. 
+neovim, the text editor I use everyday now.
 Therefore, the lua version is pinned to lua 5.1 or Luajit@2.1.*
 >>>
 

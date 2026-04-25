@@ -4126,4 +4126,3 @@ static void mpc_optimise_unretained(mpc_parser_t *p, int force) {
 void mpc_optimise(mpc_parser_t *p) {
   mpc_optimise_unretained(p, 1);
 }
-
