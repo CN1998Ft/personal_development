@@ -21,4 +21,4 @@ parsing: parsing.c
 doge: doge.c
 	$(CC) doge.c mpc.c $(CFLAGS) -o doge
 clean:
-	rm hello_world basic parsing
+	rm hello_world basic parsing vgcore* core* *.dSYM
