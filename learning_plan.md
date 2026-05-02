@@ -1,84 +1,103 @@
-# Personal Learning Plan
+# New specific learning plan
 
-This is a note for my thoughts on how I want to and approach learning C in a
-low-level way.
+> [!note]
+> The previous learning plan is too ambitious and has no focus on what I want to
+> do. It will probably lead me to no where, as I will lose interest and be too
+> exhausted. Therefore, this new learning plan is made.
 
-## What do I want to learn?
+- [ ] Finish ["Build Your Own Lisp"][1]
 
-Some low level C program. That is it, nothing special or fancy, I don't event
-know What I want to build and What I want to get out from this.
+## 1. Rendering && OpenGL
 
-## Fundamental concepts
+- [ ] [Handmade hero by Casey][11] on Windows, and different repo.
+- [ ] [Learn OpenGL][12]
 
-### Makefile and CMake
+## 2. Low-level C fundations
 
-- [x] As I need to learn C properly, I better know how [Makefile][8]
+- [ ] "CS:APP" (Computer Systems: A programmer's Perspective)
 
-- [ ] and [CMake][9] work.
 
-### Complete bash tutorial
-
-- [x] Following [YSAP for the complete Bash Scripting Course][10]
-
-        Really good tutorial for bash. Highly Recommended. 
-
-### Learn to create a language
-
-- [ ] Learn something simple first, like
-[build your own lisp][1]
-
-### Algorithm
-
-- [ ] Learn the entry level algorithm from [hello-algo][5].
-
-## Real Life Project Practice
-
-Some real practice to see how these fundamental concepts are implemented in
-real life project.
-
-### Write a shell in C
-
-- [ ] As we use shell a lot, I figure it will be fun to learn how shell was built.
-[Write a Shell in C](https://brennan.io/2015/01/16/write-a-shell-in-c/)
-
-### Regex
-
-Two very short tutorial found online.
-
-- [ ] 1. [A Regular Expression Matcher][6]
-
-- [ ] 2. [Regular Expression Matching Can Be Simple And Fast][7]
-
-### How does C manage memory
-
-- [ ] Learn from like memory allocation, pointers, heap and stack. All these stuff.
-[Tutorial](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory)
-
-### Database
-
-Database seems like a really interesting way of getting start with handling
-large data with designing different data structures. Like:
-
-- [ ] [redis][3]
-- [ ] and [SQL][2].
-
-### Compiler
-
-- [ ] Learning how the compiler work will definitely help me understand how machine
-or computer works.
-[From source code to Machine code][4] teaches how a compiler is made.
-
-### Books
-
-- [x] Learning Vimscript the hard way, I need to know my editor.
-Somewhat finished, as for vanilla vim I want to keep it simple. Therefore, only
-followed through the book till the plugins section. But, I am trying to not just
-blindly use lazyvim. So I am learning lua and understand how the plugins for nvim
-works and make it more efficient and minimalistic.
-
-- [ ] Structure and Interpretation of Computer Programs
-
-- [ ] Computer Systems: A programmer's Perspective
+<!-- # Personal Learning Plan -->
+<!---->
+<!-- This is a note for my thoughts on how I want to and approach learning C in a -->
+<!-- low-level way. -->
+<!---->
+<!-- ## What do I want to learn? -->
+<!---->
+<!-- Some low level C program. That is it, nothing special or fancy, I don't event -->
+<!-- know What I want to build and What I want to get out from this. -->
+<!---->
+<!-- ## Fundamental concepts -->
+<!---->
+<!-- ### Makefile and CMake -->
+<!---->
+<!-- - [x] As I need to learn C properly, I better know how [Makefile][8] -->
+<!---->
+<!-- - [ ] and [CMake][9] work. -->
+<!---->
+<!-- ### Complete bash tutorial -->
+<!---->
+<!-- - [x] Following [YSAP for the complete Bash Scripting Course][10] -->
+<!---->
+<!--         Really good tutorial for bash. Highly Recommended.  -->
+<!---->
+<!-- ### Learn to create a language -->
+<!---->
+<!-- - [ ] Learn something simple first, like -->
+<!-- [build your own lisp][1] -->
+<!---->
+<!-- ### Algorithm -->
+<!---->
+<!-- - [ ] Learn the entry level algorithm from [hello-algo][5]. -->
+<!---->
+<!-- ## Real Life Project Practice -->
+<!---->
+<!-- Some real practice to see how these fundamental concepts are implemented in -->
+<!-- real life project. -->
+<!---->
+<!-- ### Write a shell in C -->
+<!---->
+<!-- - [ ] As we use shell a lot, I figure it will be fun to learn how shell was built. -->
+<!-- [Write a Shell in C](https://brennan.io/2015/01/16/write-a-shell-in-c/) -->
+<!---->
+<!-- ### Regex -->
+<!---->
+<!-- Two very short tutorial found online. -->
+<!---->
+<!-- - [ ] 1. [A Regular Expression Matcher][6] -->
+<!---->
+<!-- - [ ] 2. [Regular Expression Matching Can Be Simple And Fast][7] -->
+<!---->
+<!-- ### How does C manage memory -->
+<!---->
+<!-- - [ ] Learn from like memory allocation, pointers, heap and stack. All these stuff. -->
+<!-- [Tutorial](https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory) -->
+<!---->
+<!-- ### Database -->
+<!---->
+<!-- Database seems like a really interesting way of getting start with handling -->
+<!-- large data with designing different data structures. Like: -->
+<!---->
+<!-- - [ ] [redis][3] -->
+<!-- - [ ] and [SQL][2]. -->
+<!---->
+<!-- ### Compiler -->
+<!---->
+<!-- - [ ] Learning how the compiler work will definitely help me understand how machine -->
+<!-- or computer works. -->
+<!-- [From source code to Machine code][4] teaches how a compiler is made. -->
+<!---->
+<!-- ### Books -->
+<!---->
+<!-- - [x] Learning Vimscript the hard way, I need to know my editor. -->
+<!-- Somewhat finished, as for vanilla vim I want to keep it simple. Therefore, only -->
+<!-- followed through the book till the plugins section. But, I am trying to not just -->
+<!-- blindly use lazyvim. So I am learning lua and understand how the plugins for nvim -->
+<!-- works and make it more efficient and minimalistic. -->
+<!---->
+<!-- - [ ] Structure and Interpretation of Computer Programs -->
+<!---->
+<!-- - [ ] Computer Systems: A programmer's Perspective -->
 
 
 ---
@@ -94,3 +113,5 @@ works and make it more efficient and minimalistic.
 [8]: https://makefiletutorial.com/ "Learn Makefiles By Example"
 [9]: https://cmake.org/cmake/help/book/mastering-cmake/ "Mastering CMake"
 [10]: https://course.ysap.sh/ "The complete Bash Scripting Course"
+[11]: https://hero.handmade.network "Handmade Hero"
+[12]: https://learnopengl.com "Learn OpenGL"
