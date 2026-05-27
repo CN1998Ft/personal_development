@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+declare -A counts
+
+while read -r -a words; do
+    for word in "${words[@]}"; do
+        ((counts[$word]++))
+    done
+done < words.txt
+
+for word in "${!counts[@]}"; do
+    echo "$word ${counts[$word]}"
+done | sort -k2,2rn

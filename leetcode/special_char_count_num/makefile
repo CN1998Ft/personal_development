@@ -1,22 +1,22 @@
 ifeq ($(OS), Windows_NT)
 	CC := cl
-	CFLAGS := -Zi
+	CFLAGS := -Zi -Fe:
 	RM := rm
-	TARGET := compiled
-	TOCLEAN := $(wildcard *.obj) $(wildcard *.pdb) $(wildcard *.ilk) \
+	TARGET := complied
+	TOCLEAN := $(wildcard *.obj) $(wildcard *.ilk) $(wildcard *.pdb) \
 			   $(wildcard *.exe)
 else
 	CC := gcc
 	CFLAGS := -Wall -g -o
 	RM := rm -rf
-	TARGET := compiled
+	TARGET := complied
 	TOCLEAN := $(wildcard *.dSYM)
 endif
 
 .PHONY: clean all
 
 all:
-	$(CC) hello.c $(CFLAGS) $(TARGET)
+	$(CC) $(CFLAGS) $(TARGET) count_number_special_characters.c
 
 clean:
 	$(RM) $(TARGET) $(TOCLEAN)
