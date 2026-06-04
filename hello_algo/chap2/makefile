@@ -1,12 +1,13 @@
 ifeq ($(OS), Windows_NT)
 	CC := cl
-	CFLAGS:= -Zi
+	CFLAGS:= -Zi -std:c11
 	EXECUTABLE := algo.exe
-	TOCLEAN := $(wildcard *.obj) $(wildcard *.pdb) $(wildcard *.ilk) \
-			   $(wildcard *.exe)
+	# TOCLEAN := $(wildcard *.obj) $(wildcard *.pdb) $(wildcard *.ilk) \
+	# 		   $(wildcard *.exe)
+	TOCLEAN := *.obj *.pdb *.ilk *.exe
 else
 	CC := gcc
-	CFLAGS := -Wall -g -o
+	CFLAGS := -Wall -g
 	EXECUTABLE := a.out
 	TOCLEAN := $(wildcard *.dSYM) $(wildcard *.out)
 endif
@@ -14,7 +15,7 @@ endif
 .PHONY: clean all
 
 all:
-	$(CC) $(CFLAGS) $(EXECUTABLE) algo.c
+	$(CC) $(CFLAGS) algo.c
 	./$(EXECUTABLE)
 
 clean:

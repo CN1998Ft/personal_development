@@ -2,9 +2,11 @@ ifeq ($(OS), Windows_NT)
 	CC := cl
 	CFLAGS := -Zi
 	EXECUTABLE := pointer.exe
-	TOCLEAN := $(wildcard *.obj) $(wildcard *.pdb) $(wildcard *.ilk)\
-			   $(EXECUTABLE)
+	# TOCLEAN := $(wildcard *.obj) $(wildcard *.pdb) $(wildcard *.ilk)\
+	# 		   $(EXECUTABLE)
 			   # $(wildcard *.exe)
+	TOCLEAN := *.obj *.pdb *.ilk *.exe
+
 else
 	CC := gcc
 	CFLAGS := -Wall -g

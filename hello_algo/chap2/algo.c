@@ -359,11 +359,45 @@ void time_complexity(){
     printf("\n");
 }
 
+int func(){
+    return 0;
+}
+
+int space_complexity_algorithm(int n){  // input data
+    const int a = 0;                    // temporary data (constant)
+    int b = 0;                          // Temporary datat (variable)
+    int c = func();                     // stack frame space (function call)
+    return a + b + c;                   // Output data
+}
+
+void space_complexity(){
+    printf("\n========== The space complexity sub-chapter. ==========\n");
+
+    printf("The calculation of the space complexity is rather similiar to the time\n");
+    printf("complexity. We just swap the number of operations to the number of\n");
+    printf("space used. For space complexity, we always assmue the worst case\n");
+    printf("scenario, as we have to keep the space sufficient for the program to\n");
+    printf("run.\n");
+    printf(" \n");
+    printf("loop has space complexity of O(1) as it has constant varibles and only\n");
+    printf("running once for function call. Unlike the recursion, where its space\n");
+    printf("complexity is O(n), as it recursively call itself n times function call.\n");
+    printf("I think for most of time, the time complexity is more important than\n");
+    printf("the space complexity. As for now, people starts to not care about the\n");
+    printf("time complexity even.\n");
+
+
+    printf("\n========== The space complexity sub-chapter. ==========\n");
+    printf("\n");
+}
+
 int main()
 {
     iteration_and_recursion();
 
     time_complexity();
+
+    space_complexity();
 
     return 0;
 }
