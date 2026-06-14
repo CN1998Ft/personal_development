@@ -11,6 +11,6 @@ if (( $args.Count -eq 1 ) -and ( $args[0] -eq "clean" ))
 else
 {
     pushd ./build | Out-Null
-    cl.exe -Zi -std:c11
+    cl.exe -Zi -std:c11 ../chap5.c
     popd | Out-Null
 }
