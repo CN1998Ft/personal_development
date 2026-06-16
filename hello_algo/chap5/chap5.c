@@ -306,6 +306,276 @@ int *toArray(ArrayQueue *queue, int *queSize)
     return res;
 }
 
+typedef struct DoubleListNode
+{
+    int val;
+    struct DoubleListNode *next;
+    struct DoubleListNode *prev;
+} DoubleListNode;
+
+DoubleListNode *newDoubleListNode(int num)
+{
+    DoubleListNode *new = (DoubleListNode *)malloc(sizeof(DoubleListNode));
+    new->val = num;
+    new->next = NULL;
+    new->prev = NULL;
+    return new;
+}
+
+void delDoubleListNode(DoubleListNode *node)
+{
+    free(node);
+}
+
+typedef struct
+{
+    DoubleListNode *front, *rear;
+    int queSize;
+} LinkedListDeque;
+
+LinkedListDeque *newLinkedListDeque()
+{
+    LinkedListDeque *deque = (LinkedListDeque *)malloc(sizeof(LinkedListDeque));
+    deque->front = NULL;
+    deque->rear = NULL;
+    deque->queSize = 0;
+    return deque;
+}
+
+void delLinkedListDeque(LinkedListDeque *deque)
+{
+    for (int i = 0; i < deque->queSize && deque->front != NULL; i++)
+    {
+        DoubleListNode *tmp = deque->front;
+        deque->front = deque->front->next;
+        free(tmp);
+    }
+    free(deque);
+}
+
+int size_ldq(LinkedListDeque *deque)
+{
+    return deque->queSize;
+}
+
+bool empty_ldq(LinkedListDeque *deque)
+{
+    return (size_ldq(deque) == 0);
+}
+
+void push_ldq(LinkedListDeque *deque, int num, bool isFront)
+{
+    DoubleListNode *node = newDoubleListNode(num);
+
+    if (empty_ldq(deque))
+    {
+        deque->front = deque->rear = node;
+    }
+    else if (isFront)
+    {
+        deque->front->prev = node;
+        node->next = deque->front;
+        deque->front = node;
+    }
+    else
+    {
+        deque->rear->next = node;
+        node->prev = deque->rear;
+        deque->rear = node;
+    }
+    deque->queSize++;
+}
+
+void pushFirst_ldq(LinkedListDeque *deque, int num)
+{
+    push_ldq(deque, num, true);
+}
+
+void pushLast_ldq(LinkedListDeque *deque, int num)
+{
+    push_ldq(deque, num, false);
+}
+
+int peekFirst_ldq(LinkedListDeque *deque)
+{
+    assert(size_ldq(deque) && deque->front);
+    return deque->front->val;
+}
+
+int peekLast_ldq(LinkedListDeque *deque)
+{
+    assert(size_ldq(deque) && deque->rear);
+    return deque->rear->val;
+}
+
+int pop_ldq(LinkedListDeque *deque, bool isFront)
+{
+    if (empty_ldq(deque))
+    {
+        return -1;
+    }
+    int val;
+    if (isFront)
+    {
+        val = peekFirst_ldq(deque);
+        DoubleListNode *fNext = deque->front->next;
+        if (fNext)
+        {
+            fNext->prev = NULL;
+            deque->front->next = NULL;
+        }
+        delDoubleListNode(deque->front);
+        deque->front = fNext;
+    }
+    else
+    {
+        val = peekLast_ldq(deque);
+        DoubleListNode *rPrev = deque->rear->prev;
+        if (rPrev)
+        {
+            rPrev->next = NULL;
+            deque->rear->prev = NULL;
+        }
+        delDoubleListNode(deque->rear);
+        deque->rear = rPrev;
+    }
+    deque->queSize--;
+    return val;
+}
+
+int popFirst_ldq(LinkedListDeque *deque)
+{
+    return pop_ldq(deque, true);
+}
+
+int popList_ldq(LinkedListDeque *deque)
+{
+    return pop_ldq(deque, false);
+}
+
+// void printLinkedListDeque(LinkedListDeque *deque)
+// {
+//     int *arr = malloc(sizeof(int) * deque->queSize);
+//     int i;
+//     DoubleListNode *node;
+//     for (i = 0, node = deque->front; i < deque->queSize; i++)
+//     {
+//         arr[i] = node->val;
+//         node = node->next;
+//     }
+//     printArray(arr, deque->queSize);
+//     free(arr);
+// }
+
+typedef struct
+{
+    int *nums;
+    int front;
+    int rear;
+    int queSize;
+    int queCapacity;
+} ArrayDeque;
+
+ArrayDeque *newArrayDeque(int capacity)
+{
+    ArrayDeque *deque = (ArrayDeque *)malloc(sizeof(ArrayDeque));
+    deque->queCapacity = capacity;
+    deque->nums = (int *)malloc(sizeof(int) * deque->queCapacity);
+    deque->front = deque->queSize = 0;
+    return deque;
+}
+
+void delArrayDeque(ArrayDeque *deque)
+{
+    free(deque->nums);
+    free(deque);
+}
+
+int capacity_daq(ArrayDeque *deque)
+{
+    return deque->queCapacity;
+}
+
+int size_daq(ArrayDeque *deque)
+{
+    return deque->queSize;
+}
+
+int empty_daq(ArrayDeque *deque)
+{
+    return deque->queSize == 0;
+}
+
+int dequeIndex(ArrayDeque *deque, int i)
+{
+    return ((i + capacity_daq(deque)) % capacity_daq(deque));
+}
+
+void pushFirst_daq(ArrayDeque *deque, int num)
+{
+    if (deque->queSize == capacity_daq(deque))
+    {
+        printf("Deque is full\r\n");
+        return;
+    }
+    deque->front = dequeIndex(deque, deque->front - 1);
+    deque->nums[deque->front] = num;
+    deque->queSize++;
+}
+
+void pushLast_daq(ArrayDeque *deque, int num)
+{
+    if (deque->queSize == capacity_daq(deque))
+    {
+        printf("Deque is full\r\n");
+        return;
+    }
+    deque->rear = dequeIndex(deque, deque->front + deque->queSize);
+    deque->nums[deque->rear] = num;
+    deque->queSize++;
+}
+
+int peekFirst_daq(ArrayDeque *deque)
+{
+    assert(empty_daq(deque) == 0);
+    return deque->nums[deque->front];
+}
+
+int peekLast_daq(ArrayDeque *deque)
+{
+    assert(empty_daq(deque) == 0);
+    int last = dequeIndex(deque, deque->front + deque->queSize - 1);
+    return deque->nums[last];
+}
+
+int popFirst_daq(ArrayDeque *deque)
+{
+    int num = peekFirst_daq(deque);
+    deque->front = dequeIndex(deque, deque->front + 1);
+    deque->queSize--;
+    return num;
+}
+
+int popLast_daq(ArrayDeque *deque)
+{
+    int num = peekLast_daq(deque);
+    deque->queSize--;
+    return num;
+}
+
+int *toArray_daq(ArrayDeque *deque, int *queSize)
+{
+    *queSize = deque->queSize;
+    int *res = (int *)calloc(deque->queSize, sizeof(int));
+    int j = deque->front;
+    for (int i = 0; i < deque->queSize; i++)
+    {
+        res[i] = deque->nums[j % deque->queCapacity];
+        j++;
+    }
+    return res;
+}
+
 int main()
 {
     printf(" =========== This is the Linked List Stack section. =========== \n");
