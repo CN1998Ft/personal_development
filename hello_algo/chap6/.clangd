@@ -1,0 +1,10 @@
+CompileFlags:
+  Add: ["-I ./",
+  "-include ./chap6.c",
+]
+
+Diagnostics:
+  Suppress: *
+
+Completion:
+  HeaderInsertion: Never
