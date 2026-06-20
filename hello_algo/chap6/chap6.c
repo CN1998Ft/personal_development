@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -401,6 +402,43 @@ void print(HashMapOpenAddressing *hashMap) {
             printf("%d -> %s\n", pair->key, pair->val);
         }
     }
+}
+
+int addHash(char *key) {
+    long long hash = 0;
+    const int MODULUS = 1000000007;
+    for (int i = 0; i < strlen(key); i++) {
+        hash = (hash + (unsigned char)key[i] % MODULUS;
+    }
+    return (int)hash;
+}
+
+int mulHash(char *key) {
+    long long hash = 0;
+    const int MUDULUS = 1000000007;
+    for (int i = 0; i < strlen(key); i++) {
+        hash = (31 * hash + (unsigned char)key[i]) % MODULUS;
+    }
+    return (int)hash;
+}
+
+int xorHash(char *key) {
+    int hash = 0;
+    const int MODULUS = 1000000007;
+
+    for (int i = 0; i < strlen(key); i++) {
+        hash ^= (unsigned char)key[i];
+    }
+    return hash & MODULUS;
+}
+
+int rotHash(char *key) {
+    long long hash = 0;
+    const int MODULUS = 1000000007;
+    for (int i = 0; i < strlen(key); i++) {
+        hash = ((hash << 4) ^ (hash >> 28) ^ (unsigned char)key[i]) % MODULUS;
+    }
+    return (int)hash;
 }
 
 int main() {
