@@ -1,0 +1,7 @@
+CompileFlags:
+  Add: ["-I ./",
+  "-include ./chap7.c",
+]
+
+Completion:
+  HeaderInsertion: Never
