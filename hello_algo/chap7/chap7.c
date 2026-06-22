@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_SIZE 100
+
 typedef struct TreeNode
 {
     int val;
@@ -60,6 +62,77 @@ TreeNode
 // The degenerate structure of the tree will become a linked list.
 
 
+// The Binary tree traversal
+
+int *levelOrder(TreeNode *root, int *size)
+{
+    int front, rear;
+    int index, *arr;
+
+    TreeNode *node;
+    TreeNode **queue;
+
+    queue = (TreeNode **)malloc(sizeof(TreeNode *) * MAX_SIZE);
+
+    front = 0;
+    rear = 0;
+    queue[rear++] = root;
+    arr = (int *)malloc(sizeof(int) * MAX_SIZE);
+    index = 0;
+    while (front < rear)
+    {
+        node = queue[front++];
+        arr[index++] = node->val;
+
+        if (node->left != NULL)
+        {
+            queue[rear++] = node->left;
+        }
+        if (node->right != NULL)
+        {
+            queue[rear++] = node->right;
+        }
+    }
+
+    *size = index;
+    arr = realloc(arr, sizeof(int) * (*size));
+
+    free(queue);
+    return arr;
+}
+
+// Preorder, inorder, and Postorder Traversal
+
+void preOrder(TreeNode *root, int *size)
+{
+    if (root == NULL) return;
+
+    int *arr;
+    arr[(*size)++] = root->val;
+    preOrder(root->left, size);
+    preOrder(root->right, size);
+}
+
+void inOrder(TreeNode *root, int *size)
+{
+    if (root == NULL) return;
+
+    inOrder(root->left, size);
+    int *arr;
+    arr[(*size)++] = root->val;
+    inOrder(root->right, size);
+}
+
+void postOrder(TreeNode *root, int *size)
+{
+    if (root == NULL) return;
+
+    postOrder(root->left, size);
+    postOrder(root->right, size);
+    // int *arr = (int *)malloc(sizeof(int) * size);
+    arr[(*size)++] = root->val;
+}
+
 int main()
 {
 
@@ -80,5 +153,10 @@ int main()
     n3->right = n7;
     n1->left = p;
     p->left = n2;
+
+    int size;
+    int *traversed_level = levelOrder(n1, &size);
+    printf("The size of the traversed tree (array) is %d.\n", size);
+    printf("The last of the array is %d.\n", traversed_level[7]);
     return 0;
 }
