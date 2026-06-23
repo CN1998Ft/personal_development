@@ -133,6 +133,93 @@ void postOrder(TreeNode *root, int *size)
     arr[(*size)++] = root->val;
 }
 
+typedef struct
+{
+    int *tree;
+    int size;
+} ArrayBinaryTree;
+
+ArrayBinaryTree *newArrayBinaryTree(int *arr, int arrSize)
+{
+    ArrayBinaryTree *abt = (ArrayBinaryTree *)malloc(sizeof(ArrayBinaryTree));
+    abt->tree = malloc(sizeof(int) * arrSize);
+    memcpy(abt->tree, arr, sizeof(int) * arrSize);
+    abt->size = arrSize;
+    return abt;
+}
+
+void delArrayBinaryTree(ArrayBinaryTree *abt)
+{
+    free(abt->tree);
+    free(abt);
+}
+
+int size_a(ArrayBinaryTree *abt)
+{
+    return abt->size;
+}
+
+int val(ArrayBinaryTree *abt, int i)
+{
+    if (i < 0 || i >= size_a(abt))
+        return INT_MAX;
+    return abt->tree[i];
+}
+
+int *levelOrder_a(ArrayBinaryTree *abt, int *returnSize)
+{
+    int *res = (int *)malloc(sizeof(int) * size_a(abt));
+    int index = 0;
+
+    for (int i = 0; i < size_a(abt); i++)
+    {
+        if (val(abt, i) != INT_MAX)
+            res[index++] = val(abt, i);
+    }
+    *returnSize = index;
+    return res;
+}
+
+void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index)
+{
+    if (val(abt, i) == INT_MAX)
+        return;
+    if (strcmp(order, "pre") == 0)
+        res[(*index)++] = val(abt, i);
+    dfs(abt, left(i), order, res, index);
+    if (strcmp(order, "in") == 0)
+        res[(*index)++] = val(abt, i);
+    if(strcmp(order, "post") == 0)
+        res[(*index)++] = val(abt, i);
+}
+
+int *preOrder_a(ArrayBinaryTree *abt, int *returnSize)
+{
+    int *res = (int *)malloc(sizeof(int) * size_a(abt));
+    int index = 0;
+    dfs(abt, 0, "pre", res, &index);
+    *returnSize = index;
+    return res;
+}
+
+int *inOrder_a(ArrayBinaryTree *abt, int *returnSize)
+{
+    int *res = (int *)malloc(sizeof(int) * size_a(abt));
+    int index = 0;
+    dfs(abt, 0, "in", res, &index);
+    *returnSize = index;
+    return res;
+}
+
+int *postOrder_a(ArrayBinaryTree *abt, int *returnSize)
+{
+    int *res = (int *)malloc(sizeof(int) * size_a(abt));
+    int index = 0;
+    dfs(abt, 0, "post", res, &index);
+    *returnSize = index;
+    return res;
+}
+
 int main()
 {
 
