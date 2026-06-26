@@ -220,6 +220,112 @@ int *postOrder_a(ArrayBinaryTree *abt, int *returnSize)
     return res;
 }
 
+// Binary Search tree:
+// left subtree < root < right subtree.
+// And each level should follow this root.
+
+TreeNode *search(BinarySearchTree *bst, int num)
+{
+    while (cur != NULL)
+    {
+        if (cur->val < num)
+        {
+            cur = cur->right;
+        }
+        else if (cur->val > num)
+        {
+            cur = cur->left;
+        }
+        else
+        {
+            break;
+        }
+    }
+    return cur;
+}
+
+void insert(BinarySearchTree *bst, int num)
+{
+    if (bst->root == NULL)
+    {
+        bst->root = newTreeNode(num);
+        return;
+    }
+    TreeNode *cur = bst->root, *pre = NULL;
+    while (cur != NULL)
+    {
+        if (cur->val == num)
+        {
+            return;
+        }
+        pre = cur;
+        if (cur->val < num)
+        {
+            cur = cur->right;
+        }
+        else
+        {
+            cur = cur->left;
+        }
+    }
+    TreeNode *node = newTreeNode(num);
+    if (pre->val < num)
+    {
+        pre->right = node;
+    }
+    else
+    {
+        pre->left = node;
+    }
+}
+
+void removeItem(BinarySearchTree *bst, int num)
+{
+    if (bst->root == NULL)
+        return;
+    TreeNode *cur = bst->root, *pre = NULL;
+    while (cur != NULL)
+    {
+        if (cur->val == num)
+            break;
+        pre = cur;
+        if (cur->val < num)
+        {
+            cur = cur->right;
+        }
+        else
+        {
+            cur = cur->left;
+        }
+    }
+    if (cur == NULL)
+        return;
+    if (cur->left == NULL || cur->right == NULL)
+    {
+        TreeNode *child = cur->left  != NULL ? cur->left : cur->right;
+        if (pre->left == cur)
+        {
+            pre->left = child;
+        }
+        else
+        {
+            pre->right = child;
+        }
+        free(cur);
+    }
+    else
+    {
+        TreeNode *tmp = cur->right;
+        while (tmp->left != NULL)
+        {
+            tmp = tmp->left;
+        }
+        int tmpVal = tmp->val;
+        removeItem(bst, tmp->val);
+        cur->val = tmpVal;
+    }
+}
+
 int main()
 {
 
