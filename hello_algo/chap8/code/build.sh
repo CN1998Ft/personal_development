@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 if [[ ! -d ../build ]]; then
     mkdir ../build
     echo '*' > ../build/.gitignore
@@ -9,6 +8,6 @@ if [[ $# == 1 && $1 == "clean" ]]; then
     rm -rf ../build
 else
     pushd ../build > /dev/null 2>&1
-    gcc -Wall -g ../code/chap10.c
+    gcc -Wall -g ../code/chap8.c
     popd > /dev/null 2>&1
 fi

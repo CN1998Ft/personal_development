@@ -1,0 +1,6 @@
+CompileFlags:
+  Add: ["-I ./code",
+  "-include ./code/chap8.c",
+]
+Completion:
+  HeaderInsertion: Never
