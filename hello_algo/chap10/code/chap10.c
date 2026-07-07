@@ -91,6 +91,88 @@ int binarySearchInsertion(int *nums, int numSize, int target)
     return i;
 }
 
+int binarySearchLeftEdge(int *nums, int numSize, int target)
+{
+    int i = binarySearchInsertion(nums, numSize, target);
+    if (i == numSize || nums[i] != target) return -1;
+    return i;
+}
+
+int binarySearchRightEdge(int *nums, int numSize, int target)
+{
+    int i = binarySearchInsertion(nums, numSize, target+1);
+    int j = i - 1;
+    if (j == -1 || nums[i] != target) return -1;
+    return j;
+}
+
+int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize)
+{
+    for (int i = 0; i < numsSize; ++i)
+    {
+        for (int j = i + 1; j < numsSize; ++i)
+        {
+            if (nums[i] + nums[j] == target)
+            {
+                int *res = malloc(sizeof(int) * 2);
+                res[0] = i, res[1] = j;
+                *returnSize = 2;
+                return res;
+            }
+        }
+    }
+    *returnSize = 0;
+    return NULL;
+}
+
+typedef struct
+{
+    int key;
+    int val;
+    UT_hash_handle hh;
+} HashTable;
+
+HashTable *find(HashTable *h, int key)
+{
+    HashTable *tmp;
+    HASH_FIND_INT(h, &key, tmp);
+    return tmp;
+}
+
+void insert(HashTable **h, int key, int val)
+{
+    HashTable *t = find(*h, key);
+    if (t == NULL)
+    {
+        HashTable *tmp = malloc(sizeof(HashTable));
+        tmp->key = key, tmp->val = val;
+        HASH_ADD_INT(*h, key, tmp);
+    }
+    else
+    {
+        t->val = val;
+    }
+}
+
+int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize)
+{
+    HashTable *hashtable = NULL;
+    for (int i = 0; i < numsSize; i++)
+    {
+        HashTable *t = find(hashtable, target - nums[i]);
+        if (t != NULL)
+        {
+            int *res = malloc(sizeof(int) * 2);
+            res[0] = t->val, res[1] = i;
+            *returnSize = 2;
+            return res;
+        }
+        insert(&hashtable, nums[i], i);
+    }
+    *returnSize = 0;
+    return NULL;
+}
+
 int main()
 {
     int nums[12];
