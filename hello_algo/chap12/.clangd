@@ -1,0 +1,7 @@
+CompileFlags:
+  Add: [
+    "-I ./code",
+  ]
+
+Completion:
+  HeaderInsertion: Never
