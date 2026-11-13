@@ -9,6 +9,7 @@ if not exist ..\build (
 
 if "%~1"=="clean" (
     del /S /Q /F ..\build
+    rmdir ..\build
 )
 if "%~1"=="" (
     pushd ..\build
